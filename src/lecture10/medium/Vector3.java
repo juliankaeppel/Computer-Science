@@ -1,5 +1,6 @@
 package lecture10.medium;
 
+
 /*
  * Include normal vector operations for 3-vectors, including cross product. 
  * The cross product of two vectors is another vector. a cross b = ||a|| ||b|| 
@@ -11,11 +12,11 @@ package lecture10.medium;
  * 
  * stuff to add
  * addition /
- * dot product
+ * dot product /
  * cross product /
  * magnitude /
  * scaling to magnitude /
- * projection
+ * projection /
  * unit vector /
  * multiply /
  */
@@ -24,7 +25,7 @@ public class Vector3 {
 
 	public double x, y, z;
 	
-	Vector3(double x, double y, double z){
+	public Vector3(double x, double y, double z){
 		this.x = x;
 		this.y = y;
 		this.z = z;
@@ -71,7 +72,7 @@ public class Vector3 {
 	}
 	
 	public Vector3 scale(double magnitude) {
-		return multiply(magnitude / magnitude());
+		return this.multiply(magnitude / magnitude());
 	}
 	
 	public static Vector3 scale(Vector3 v, double magnitude) {
@@ -79,7 +80,7 @@ public class Vector3 {
 	}
 	
 	public Vector3 unitVector() {
-		return scale(1);
+		return this.scale(1);
 	}
 	
 	public static Vector3 unitVector(Vector3 v) {
@@ -96,5 +97,29 @@ public class Vector3 {
 	
 	public static Vector3 crossProduct(Vector3 v1, Vector3 v2) {
 		return v1.crossProduct(v2);
+	}
+	
+	public double dotProduct(Vector3 v) {
+		return x * v.x + y * v.y + z * v.z;
+	}
+	
+	public static double dotProduct(Vector3 v1, Vector3 v2) {
+		return v1.x * v2.x + v1.y * v2.y + v1.z * v2.z;
+	}
+	
+	public double projection(Vector3 v) {
+		return dotProduct(v) / magnitude();
+	}
+	
+	public static double projection(Vector3 v1, Vector3 v2) {
+		return dotProduct(v1, v2) / v1.magnitude();
+	}
+	
+	public String toString() {
+		return "(" + x + ", " + y + ", " + z + ")";
+	}
+	
+	public static String toString(Vector3 v) {
+		return v.toString();
 	}
 }
