@@ -1,6 +1,6 @@
 package lecture11.basic;
 
-public abstract class Shape implements Tangible{
+public abstract class Shape implements Tangible {
 
 	public Side sides[];
 	
