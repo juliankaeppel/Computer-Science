@@ -2,7 +2,6 @@ package lecture14.basic;
 
 import java.text.DecimalFormat;
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class Search {
 
